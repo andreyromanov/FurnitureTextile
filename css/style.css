@@ -4,8 +4,11 @@ body {
     height: 100%;
     margin: 0 auto;
     padding: 0;
-    background-color: #222222;
+    background-color: green;
     color: #ffffff;
+}
+h3 {
+	color: blue;
 }
 .page {
     width: 100%;
@@ -14,11 +17,15 @@ body {
 }
 .contents {
     display: table-cell;
-    vertical-align: middle;
     text-align: center;
     -webkit-tap-highlight-color: transparent;
 }
-#content-text {
-    font-weight: bold;
-    font-size: 5em;
+header h1 {padding:3px 20px 0;color:#fff;text-align: center;}
+.container {display:-webkit-flex;margin:20px 10px;}
+.container aside {-webkit-flex:1 0 20%;color:#333;background-color: lightblue;min-height:7em;margin-top:30px;margin-bottom: 35px;}
+.contents {padding:1em;line-height:1.5;-webkit-columns:5em 1;-webkit-column-rule:1px solid #999;-webkit-column-gap:0.5em;-webkit-flex:1 1 auto;}
+.contents p.desc {margin-top:.5em;color:#FFF;font-family:'Nautilus', cursive;}
+
+.land-img{
+	width: 80px;
 }

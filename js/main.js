@@ -16,6 +16,6 @@ window.onload = function() {
     mainPage.addEventListener("click", function() {
         var contentText = document.querySelector('#content-text');
 
-        contentText.innerHTML = (contentText.innerHTML === "Basic") ? "Tizen" : "Basic";
+        contentText.innerHTML = (contentText.innerHTML === "Web") ? "MebTex" : "Web";
     });
 };
