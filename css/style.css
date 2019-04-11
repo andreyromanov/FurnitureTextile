@@ -29,3 +29,18 @@ header h1 {padding:3px 20px 0;color:#fff;text-align: center;}
 .land-img{
 	width: 80px;
 }
+.l-img{
+	width: 250px;
+	margin-bottom: 30px;
+	margin-left: 50px;
+	display: none;
+	border-radius: 50px;
+	border: 1px solid #d4d4d4;
+	 box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.l-txt{
+	background-color: white;
+	color: green;
+	padding-top: 10px;
+}

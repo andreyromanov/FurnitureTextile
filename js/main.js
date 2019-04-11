@@ -1,21 +1,7 @@
-window.onload = function() {
-    // TODO:: Do your initialization job
-
-    // add eventListener for tizenhwkey
-    document.addEventListener('tizenhwkey', function(e) {
-        if (e.keyName === "back") {
-            try {
-                tizen.application.getCurrentApplication().exit();
-            } catch (ignore) {}
-        }
-    });
-
-    // Sample code
-    var mainPage = document.querySelector('#main');
-
-    mainPage.addEventListener("click", function() {
-        var contentText = document.querySelector('#content-text');
-
-        contentText.innerHTML = (contentText.innerHTML === "Web") ? "MebTex" : "Web";
-    });
-};
+$(document).ready(function(){
+  $(window).scroll(function(){
+    $("#ourt1").fadeIn(2000);
+    $("#ourt2").fadeIn(3000);
+  });
+  
+});
