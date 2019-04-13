@@ -6,3 +6,6 @@ $(document).ready(function(){
   });
 	
 });
+function cont() {
+	document.getElementById("cont-text").style.display = "block";
+}
