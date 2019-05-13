@@ -7,6 +7,15 @@ body {
     background-color: green;
     color: #ffffff;
 }
+ul{
+	list-style-type: none;
+	font-size: 20px;
+}
+li{
+	float: left;
+	margin-left: 10px;
+	
+}
 h3 {
 	color: blue;
 }
