@@ -9,3 +9,7 @@ $(document).ready(function(){
 function cont() {
 	document.getElementById("cont-text").style.display = "block";
 }
+
+function registr() {
+	window.location.href = "index.html";
+}

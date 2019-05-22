@@ -2,14 +2,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="Tizen Mobile Web Basic Template" />
+
+    <title>MebTex</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+     
 </head>
 <body>
  <div id="main" class="page">
     <ul>
    <li><a href="index.html"><b>Главная</b></a></li>
    <li><a href="shop.html"><b>Катало</b></a>г</li>
-   <li><a href="index.html"><b>Регистрация</b></a></li>
+   <li><a href="registration.html"><b>Регистрация</b></a></li>
    </ul>
    <br />
    <hr />
@@ -19,10 +26,18 @@
 	</div>
 	       
        <div class="l-txt">
-       <h2>Регистрация</h2>
-     <div></div>
        
-       <a href="index.html"><button class="butn">Главная страница</button></a>
+     <div>
+     
+  <fieldset>
+    <legend class="leg">Регистрация</legend>
+    <p><label for="name">Имя&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" id="name" class="inp"></p>
+    <p><label for="email">E-mail&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="email" id="email" class="inp"></p>
+    <p><label for="email">Пароль&nbsp;&nbsp;&nbsp;</label><input type="password" id="password" class="inp"></p>
+  </fieldset>
+<p><button onclick="registr()" class="butn">Зарегистрироваться</button></p>
+
+     </div>
        </div>
        
     </div>

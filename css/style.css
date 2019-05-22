@@ -115,3 +115,12 @@ a {
 	line-height: 2;
 	display: none;
 }
+.inp{
+	margin-top: 5px;
+	border: 1px solid grey;
+	font-size: 19px;
+	border-radius: 5px;
+}
+.leg{
+	font-size: 20px;
+}
