@@ -10,6 +10,8 @@ var dbDisplayName = "tizen_test_db";
 var dbSize = 2 * 1024 * 1024;
 
 
+
+
 function selectDB() {
   if (window.openDatabase) {
       //openDatabase(name, version, displayname, estimatedsize, callback);
@@ -24,7 +26,7 @@ function selectDB() {
       //inserting data in table
       insertData(db, name, email, pass);
       window.location.href = "profile.html";
-      
+        
   } else {
       alert("Web SQL Database not supported in this browser");
   }
@@ -55,3 +57,26 @@ function dropTable(db) {
       e.executeSql("DROP TABLE Reg_tbl");
   });
 }
+
+
+window.onload = function () {
+	db = openDatabase(dbName, version, dbDisplayName, dbSize);
+	//dropTable(db);
+	//createTable(db);
+	db.transaction(function (t) {
+	    t.executeSql('SELECT COUNT(*) AS c FROM Reg_tbl', [], function (t, r) {
+	      console.log( r.rows.item(0).c);
+	      if(r.rows.item(0).c == 0){
+	    	
+	    	 
+	    	 alert('No rows'); 
+	      } else if(r.rows.item(0).c == 1){
+	    	  window.location.href = "profile.html";
+	    	 }
+	     // alert(r.rows.item(0).c);
+	    }, function (tx, e) {
+	      alert ("unknown: " + e.message);
+	    });
+	  });
+
+};
