@@ -16,8 +16,8 @@ function selectDB() {
   if (window.openDatabase) {
       //openDatabase(name, version, displayname, estimatedsize, callback);
       db = openDatabase(dbName, version, dbDisplayName, dbSize);
-      dropTable(db);
-      createTable(db);
+      //dropTable(db);
+      //createTable(db);
 
       var name = document.getElementById("name").value;
       var email = document.getElementById("email").value;
@@ -61,15 +61,15 @@ function dropTable(db) {
 
 window.onload = function () {
 	db = openDatabase(dbName, version, dbDisplayName, dbSize);
-	//dropTable(db);
-	//createTable(db);
+	  //dropTable(db);
+	  createTable(db);
+	
 	db.transaction(function (t) {
 	    t.executeSql('SELECT COUNT(*) AS c FROM Reg_tbl', [], function (t, r) {
 	      console.log( r.rows.item(0).c);
 	      if(r.rows.item(0).c == 0){
-	    	
-	    	 
-	    	 alert('No rows'); 
+
+	    	//alert('No rows'); 
 	      } else if(r.rows.item(0).c == 1){
 	    	  window.location.href = "profile.html";
 	    	 }

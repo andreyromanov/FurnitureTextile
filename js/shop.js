@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <meta name="description" content="Tizen Mobile Web Basic Template" />
-
-    <title>MebTex</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-   
-    <script>
-        var db;
+ var db;
         //database version setting
         var version = 1.0;
         //database name setting
@@ -98,58 +85,4 @@
 
         window.onload = function () {
             selectDB();
-            	db = openDatabase(dbName, version, dbDisplayName, dbSize);
-	//dropTable(db);
-	//createTable(db);
-	db.transaction(function (t) {
-	    t.executeSql('SELECT COUNT(*) AS c FROM Reg_tbl', [], function (t, r) {
-	     // console.log( r.rows.item(0).c);
-	      if(r.rows.item(0).c == 0){
-	    	  document.getElementById("reg").style.display = "block";
-	    	  document.getElementById("prf").style.display = "none";
-	      } else if(r.rows.item(0).c == 1){
-	    	  document.getElementById("reg").style.display = "none";
-	    	  document.getElementById("prf").style.display = "block";
-	    	 }
-	     // alert(r.rows.item(0).c);
-	    }, function (tx, e) {
-	      alert ("unknown: " + e.message);
-	    });
-	  });
-           
         };
-    </script>
-     
-</head>
-
-
-<body>
-    <div id="main" class="page">
-<ul>
-   <li><a href="index.html"><b>Головна</b></a></li>
-   <li><a href="shop.html"><b>Катало</b></a>г</li>
-   <li id="reg" style="display: none;"><a href="registration.html"><b>Регістрація</b></a></li>
-   <li id="prf" style="display: none;"><a href="profile.html"><b>Профіль</b></a></li>
-   </ul>
-   <br />
-   <hr />
-           
-   <div class="container">
-            
-	</div>
-	       
-       <div class="l-txt">
-       
-     <div id="tbody01"></div>
-       
-       <a href="index.html"><button class="butn">Главная страница</button></a>
-       </div>
-       
-    </div>
-    
-    <script src="js/main.js"></script>
-    
-
-</body>
-
-</html>
