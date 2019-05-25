@@ -3,112 +3,94 @@
 	<meta charset="utf-8">
 	<title>Профіль</title>
 	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>	
-<style type="text/css">
-	body{
-		background-color: green;
-		margin: 50px 100px;
-	}
-	
-	#dialog-link {
-		padding: .4em 1em .4em 20px;
-		text-decoration: none;
-		position: relative;
-	}
-	#dialog-link span.ui-icon {
-		
-		position: absolute;
-		left: .2em;
-		margin-top: .1em;
-	}
-		
-	</style>
-	 <link rel="stylesheet" type="text/css" href="css/style.css" />
-	 
-	      
-    <script>
-        var db;
-        //database version setting
-        var version = 1.0;
-        //database name setting
-        var dbName = "tizendb";
-        //database display name setting
-        var dbDisplayName = "tizen_test_db";
-        //database size setting
-        var dbSize = 2 * 1024 * 1024;
-        
-        db = openDatabase(dbName, version, dbDisplayName, dbSize);
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>	
+    <style type="text/css">
+       body{
+          background-color: green;
+          margin: 50px 100px;
+      }
 
-        //reads and displays values from the table
-        function dataView(db) {
-            var data = document.getElementById("prof");
-            data.innerHTML = "";
-            
-            db.transaction(function (t) {
-                t.executeSql("SELECT * FROM Reg_tbl", [],
+      #dialog-link {
+          padding: .4em 1em .4em 20px;
+          text-decoration: none;
+          position: relative;
+      }
+      #dialog-link span.ui-icon {
+
+          position: absolute;
+          left: .2em;
+          margin-top: .1em;
+      }
+  </style>
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <script>
+    var db;
+    var version = 1.0;
+    var dbName = "tizendb";
+    var dbDisplayName = "tizen_test_db";
+    var dbSize = 2 * 1024 * 1024;
+
+    db = openDatabase(dbName, version, dbDisplayName, dbSize);
+    //reads and displays values from the table
+    function dataView(db) {
+        var data = document.getElementById("prof");
+        data.innerHTML = "";
+        db.transaction(function (t) {
+            t.executeSql("SELECT * FROM Reg_tbl", [],
                 function (tran, r) {
-                        for (var i = 0; i < r.rows.length; i++) {
+                    for (var i = 0; i < r.rows.length; i++) {
                         var id = r.rows.item(i).id;
                         var name = r.rows.item(i).name;
                         var email = r.rows.item(i).email;
                         var password = r.rows.item(i).password;
-
                         //data list rendering
                         if (data) {
-                           data.innerHTML += '<p>ЛОГІН  - ' + name + '</p>' + '<p>ПОШТА - ' + email + '</p><br><button onclick="delTable(db)">Видалити</button>';
-                           
-                        }
-
-                    }
-                },
-                function (t, e) { alert("Error:" + e.message); }
+                         data.innerHTML += '<p>ЛОГІН  - ' + name + '</p>' + '<p>ПОШТА - ' + email + '</p><br><button onclick="delTable(db)" style="background-color: red;">Видалити</button>';
+                     }
+                 }
+             },
+             function (t, e) { alert("Error:" + e.message); }
              );
-            });
-        }
-
-    </script>
-	 <script src="js/menu.js"></script>
+        });
+    }
+</script>
+<script src="js/menu.js"></script>
 </head>
 <body>
-<ul>
-   <li><a href="index.html"><b>Головна</b></a></li>
-   <li><a href="shop.html"><b>Катало</b></a>г</li>
-   <li id="reg" style="display: none;"><a href="registration.html"><b>Регістрація</b></a></li>
-   <li id="prf" style="display: none;"><a href="profile.html"><b>Профіль</b></a></li>
-   </ul>
-   <br />
-   <hr />
+    <ul>
+     <li><a href="index.html"><b>Головна</b></a></li>
+     <li><a href="shop.html"><b>Катало</b></a>г</li>
+     <li id="reg" style="display: none;"><a href="registration.html"><b>Реєстрація</b></a></li>
+     <li id="prf" style="display: none;"><a href="profile.html"><b>Профіль</b></a></li>
+ </ul>
+ <br />
+ <hr />
 
-<h2 class="demoHeaders" align="center">Профіль</h2>
-<p><a href="#" id="dialog-link" class="ui-state-default ui-corner-all" style="margin-left: 30%"><span class="ui-icon ui-icon-newwin"></span>Показати данні</a></p>
-
-<div id="dialog" title="Інформація">
-<div id="prof">
-</div>
-</div>
-
-
-
-
-<script type="text/javascript">
-
-    $("#dialog").dialog({
-        autoOpen: false,
-        width: 300,
-        buttons:
-		{
-		    Ok: function () {
-		        $(this).dialog("close");
-		    }
-		,
-		Cancel: function () {
-		        $(this).dialog("close");
-		    }
-		}
-	
-    });
-
+ <h2 class="demoHeaders" align="center">Профіль</h2>
+ <p>
+    <a href="#" id="dialog-link" class="ui-state-default ui-corner-all" style="margin-left: 30%">
+        <span class="ui-icon ui-icon-newwin"></span>Показати данні</a>
+    </p>
+    <div id="dialog" title="Інформація">
+        <div id="prof">
+        </div>
+    </div>
+    <script type="text/javascript">
+        $("#dialog").dialog({
+            autoOpen: false,
+            width: 300,
+            buttons:
+            {
+              Ok: function () {
+                  $(this).dialog("close");
+              }
+              ,
+              Cancel: function () {
+                  $(this).dialog("close");
+              }
+          }
+      });
     // Link to open the dialog
     $("#dialog-link").click(function () {
         $("#dialog").dialog("open");
@@ -117,25 +99,23 @@
 
     // Hover states on the static widgets
     $("#dialog-link").hover(
-	function () {
-	    $(this).addClass("ui-state-hover");
-	},
-	function () {
-	    $(this).removeClass("ui-state-hover");
-	}
-);
- dataView(db);
+       function () {
+           $(this).addClass("ui-state-hover");
+       },
+       function () {
+           $(this).removeClass("ui-state-hover");
+       }
+       );
+    dataView(db);
 </script>
 <script>
-
-   function delTable(db) {
-            db.transaction(function (e) {
-            alert('Deleted');
-                e.executeSql("DELETE FROM Reg_tbl");
-                window.location.href = "index.html";
-            });
-        }
-        
+ function delTable(db) {
+    db.transaction(function (e) {
+        alert('Запис видалено!');
+        e.executeSql("DELETE FROM Reg_tbl");
+        window.location.href = "index.html";
+    });
+}
 </script>
 <script src="js/profile.js"></script>
 </body>
